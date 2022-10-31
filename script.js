@@ -31,15 +31,15 @@ function playRound(){
     }
 
     if(isDraw){
-        console.log(`Draw! ${playerSelection} negates ${computerSelection}`);
+        console.log(`Draw this round! ${playerSelection} negates ${computerSelection}`);
         return 0;
     }
     else if(playerWin){
-        console.log(`You Win! ${playerSelection} beats ${computerSelection}`);
+        console.log(`You win this round! ${playerSelection} beats ${computerSelection}`);
         return 1;
     }
     else{
-        console.log(`You Lose! ${computerSelection} beats ${playerSelection}`);
+        console.log(`You lose this round! ${computerSelection} beats ${playerSelection}`);
         return 2;
     }
 }
@@ -47,6 +47,26 @@ function playRound(){
 function game(){
     let playerScore = 0;
     let computerScore = 0;
+    for(let x = 0; x < 5; x++){
+        let result = playRound();
+        if(result == 1){
+            playerScore++;
+        }
+        else if(result == 2){
+            computerScore++;
+        }
+    }
+    
+    if(playerScore == computerScore){
+        console.log(`Game draw! ${playerScore} rounds to ${computerScore} rounds`);
+    }
+    else if(playerScore > computerScore){
+        console.log(`You win the game! ${playerScore} rounds to ${computerScore} rounds`);
+    }
+    else{
+        console.log(`You lose the game! ${computerScore} rounds to ${playerScore} rounds`);
+    }
 }
 
-console.log(playRound());
+game();
+
