@@ -11,9 +11,9 @@ function getComputerChoice(){
     }
 }
 
-function playRound(playerSelection, getComputerChoice){
-    playerSelection = playerSelection.toUpperCase();
-    computerSelection = computerSelection.toUpperCase();
+function playRound(){
+    let playerSelection = prompt("Rock, Paper, or Scissors?").toUpperCase();
+    let computerSelection = getComputerChoice().toUpperCase();
     let playerWin = false; 
     let isDraw = false;
 
@@ -31,13 +31,22 @@ function playRound(playerSelection, getComputerChoice){
     }
 
     if(isDraw){
-        return `Draw! ${playerSelection} negates ${computerSelection}`;
+        console.log(`Draw! ${playerSelection} negates ${computerSelection}`);
+        return 0;
     }
     else if(playerWin){
-        return `You Win! ${playerSelection} beats ${computerSelection}`;
+        console.log(`You Win! ${playerSelection} beats ${computerSelection}`);
+        return 1;
     }
     else{
-        return `You Lose! ${computerSelection} beats ${playerSelection}`;
+        console.log(`You Lose! ${computerSelection} beats ${playerSelection}`);
+        return 2;
     }
 }
 
+function game(){
+    let playerScore = 0;
+    let computerScore = 0;
+}
+
+console.log(playRound());
